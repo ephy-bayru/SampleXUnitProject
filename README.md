@@ -9,12 +9,12 @@ Once the framework is installed you can open the `sln` file using Visual Studio 
 The application should print "Hello World" to Console. (Note: if running from Visual Studio, the prompt might close too fast for you to see this output)
 
 ## Running the tests
-In order to run the tests you can open "Test Explorer" in Visual Studio and choose "Run all tests" or you can navigate to the `SampleTests` folder in command prompt or terminal and enter the command `dotnet test`
+In order to run the tests you can open "Test Explorer" in Visual Studio and choose "Run all tests" or you can navigate to the `SampleTests` folder in command prompt or terminal and enter the command `dotnet test /verbosity:quiet` (if on OSX use `--` instead of `/`)
 
 The results of these tests will populate the "Test Explorer Results" if in Visual Studio, otherwise results will be printed out to the console.
 
 ## Save test results
-In order to have the results added to the file system navigate to the `SampleTests` folder and run `dotnet test --logger "trx;LogFileName=filename.trx"`
+In order to have the results added to the file system navigate to the `SampleTests` folder and run `dotnet test /verbosity:quiet /logger "trx;LogFileName=filename.trx"` (Note: omitting the verbosity tag dramatically increases run time on tests for xunit at this time. .NET 2.0 8/14/2017)
 
 This will add a `filename.trx` file containing xml with the tests results to a `TestResults` folder inside the `SampleTests` Folder.
 
